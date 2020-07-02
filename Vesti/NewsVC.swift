@@ -29,6 +29,8 @@ import UIKit
 
 class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLParserDelegate {
     
+    // MARK: - IB outlets
+    
     @IBOutlet var tableView: UITableView!
     @IBOutlet var categoryCollectionView: UICollectionView!
     
@@ -52,6 +54,8 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
         
         tableView.delegate = self
         tableView.dataSource = self
+        categoryCollectionView.delegate = self
+        categoryCollectionView.dataSource = self
         
 
         
@@ -59,6 +63,7 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
     
     
     
+    // MARK: - Fetch data
     private func fetchData() {
         let feedParser = ParserManager()
         let _ : ParserManager = ParserManager().initWithURL(URL(string: url)!) as! ParserManager
@@ -119,3 +124,17 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
     
 }
 
+    // MARK: - Extension Collection View data sourse
+
+extension NewsVC: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        <#code#>
+    }
+    
+    
+}
