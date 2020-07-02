@@ -46,9 +46,28 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        fetchData()
+        
+        tableView.rowHeight = 107
+        
         tableView.delegate = self
         tableView.dataSource = self
         
+
+        
+    }
+    
+    
+    
+    private func fetchData() {
+        let feedParser = ParserManager()
+        let _ : ParserManager = ParserManager().initWithURL(URL(string: url)!) as! ParserManager
+        feedParser.parseFeed(url: url) { (rssItems) in
+            self.rssItems = rssItems
+            OperationQueue.main.addOperation {
+                self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+            }
+        }
     }
     
     
@@ -80,6 +99,17 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
             cell.titleLabel.text = rssItem.title
         }
         return cell
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard segue.identifier == "detail" else { return }
+        if let indexPath = tableView.indexPathForSelectedRow {
+            let detailVC = segue.destination as! DetailVC
+            detailVC.rssItem = rssItems?[indexPath.row]
+        }
     }
 
     
