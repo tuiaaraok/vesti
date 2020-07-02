@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewsVC: UIViewController {
+class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
