@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Vesti
 //
-//  Created by Айсен Шишигин on 02/07/2020.
+//  Created by Туйаара Оконешникова on 02/07/2020.
 //  Copyright © 2020 Туйаара Оконешникова. All rights reserved.
 //
 
@@ -15,6 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let navigationFont = UIFont(name: "Palatino-Bold", size: 17)!
+        let navigationFontAttributes = [NSAttributedString.Key.font : navigationFont]
+        UINavigationBar.appearance().titleTextAttributes = navigationFontAttributes
+        UIBarButtonItem.appearance().setTitleTextAttributes(navigationFontAttributes, for: .normal)
+        
         return true
     }
 
