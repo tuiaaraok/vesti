@@ -21,7 +21,8 @@ class DetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+        fullTextLabel.setLineSpacing(lineSpacing: 1.2, lineHeightMultiple: 1.2)
         
         let dateText = rssItem.pubDate
         let endIndex = dateText.index(dateText.endIndex , offsetBy: -15)
@@ -42,8 +43,17 @@ class DetailVC: UIViewController {
         
         
         createConstraints()
+        fetchImage()
    
     }
+    
+    func fetchImage() {
+        let url = NSURL(string: rssItem.images["image"]!)
+        let data = NSData(contentsOf:url! as URL)
+        let image = UIImage(data:data! as Data)
+        mainImage.image = image
+    }
+
     
     
     
@@ -138,4 +148,31 @@ class DetailVC: UIViewController {
                }
 }
 
+
+
+extension UILabel {
+
+    //create a function to set the interval
+    func setLineSpacing(lineSpacing: CGFloat = 0.0, lineHeightMultiple: CGFloat = 0.0) {
+        
+        guard let labelText = self.text else { return }
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = lineSpacing
+        paragraphStyle.lineHeightMultiple = lineHeightMultiple
+        
+    
+        let attributedString:NSMutableAttributedString
+        if let labelattributedText = self.attributedText {
+            attributedString = NSMutableAttributedString(attributedString: labelattributedText)
+        } else {
+            attributedString = NSMutableAttributedString(string: labelText)
+        }
+
+        // Line spacing attribute
+        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attributedString.length))
+
+        self.attributedText = attributedString
+    }
+}
 
