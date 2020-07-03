@@ -37,13 +37,15 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
     
     // MARK: - Private properties
           
-       private let categories = Categories.allCases
-       private var category: Categories?
-       private var rssItems: [RSSItem]?
-       private var currentItems: [RSSItem]?
-       private var url = "https://www.vesti.ru/vesti.rss"
+    private let categories = Categories.allCases
+    private var category: Categories?
+    private var rssItems: [RSSItem]?
+    private var currentItems: [RSSItem]?
+    private var url = "https://www.vesti.ru/vesti.rss"
     
     
+    var previousSelected : IndexPath?
+    var currentSelected : Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +78,21 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
     }
     
     
+    
+    
+    // Filter by category
+       
+    private func categoryFilter(_ sender: Categories) {
+        
+        if sender.rawValue == "Все" {
+            fetchData()
+        } else {
+            currentItems = rssItems
+            rssItems = rssItems!.filter{$0.category == sender.rawValue}
+            tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+            rssItems = currentItems
+        }
+    }
     
     
     // MARK: - Table view data sourse
@@ -128,13 +145,63 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
 
 extension NewsVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
+    
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        <#code#>
+        return categories.count
     }
+    
+    
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collcell", for: indexPath) as! CollectionViewCell
+                  
+        cell.categoryLabel.text = categories[indexPath.item].rawValue
+        cell.categoryLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+                 
+                  
+        // To set the font style on click
+                  
+        if currentSelected != nil && currentSelected == indexPath.row {
+            cell.categoryLabel.font = UIFont(name: "Palatino-Bold", size: 15)
+        } else {
+            cell.categoryLabel.font = UIFont(name: "Palatino-Roman", size: 15)
+        }
+        return cell
     }
     
     
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        // For remove previously selection
+        if previousSelected != nil{
+            if let cell = collectionView.cellForItem(at: previousSelected!) as! CollectionViewCell?{
+                cell.categoryLabel.font = UIFont(name: "Palatino-Roman", size: 15)
+            }
+        }
+        currentSelected = indexPath.row
+        previousSelected = indexPath
+
+        // For reload the selected cell
+        collectionView.reloadItems(at: [indexPath])
+               
+           
+        // Set action when clicking on a cell
+        category = categories[indexPath.item]
+        categoryFilter(category!)
+     
+        
+          }
+     
+       
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+           return CGSize(width: 100, height: 40.0)
+       }
 }

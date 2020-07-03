@@ -16,6 +16,7 @@
 		63F1BC5E24AE22B8003DEAF0 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F1BC5D24AE22B8003DEAF0 /* DetailVC.swift */; };
 		63F1BC6024AE22EF003DEAF0 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F1BC5F24AE22EF003DEAF0 /* TableViewCell.swift */; };
 		63F1BC6224AE2479003DEAF0 /* ParserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F1BC6124AE2479003DEAF0 /* ParserManager.swift */; };
+		63F1BC6824AF2749003DEAF0 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F1BC6724AF2749003DEAF0 /* CollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		63F1BC5D24AE22B8003DEAF0 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		63F1BC5F24AE22EF003DEAF0 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		63F1BC6124AE2479003DEAF0 /* ParserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserManager.swift; sourceTree = "<group>"; };
+		63F1BC6724AF2749003DEAF0 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				63F1BC4D24AE2255003DEAF0 /* NewsVC.swift */,
 				63F1BC5D24AE22B8003DEAF0 /* DetailVC.swift */,
 				63F1BC5F24AE22EF003DEAF0 /* TableViewCell.swift */,
+				63F1BC6724AF2749003DEAF0 /* CollectionViewCell.swift */,
 				63F1BC6124AE2479003DEAF0 /* ParserManager.swift */,
 				63F1BC4F24AE2255003DEAF0 /* Main.storyboard */,
 				63F1BC5224AE2256003DEAF0 /* Assets.xcassets */,
@@ -150,6 +153,7 @@
 				63F1BC6024AE22EF003DEAF0 /* TableViewCell.swift in Sources */,
 				63F1BC4E24AE2255003DEAF0 /* NewsVC.swift in Sources */,
 				63F1BC5E24AE22B8003DEAF0 /* DetailVC.swift in Sources */,
+				63F1BC6824AF2749003DEAF0 /* CollectionViewCell.swift in Sources */,
 				63F1BC4A24AE2255003DEAF0 /* AppDelegate.swift in Sources */,
 				63F1BC6224AE2479003DEAF0 /* ParserManager.swift in Sources */,
 				63F1BC4C24AE2255003DEAF0 /* SceneDelegate.swift in Sources */,
