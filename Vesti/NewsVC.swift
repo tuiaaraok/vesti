@@ -59,7 +59,6 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self
         
-
         
     }
     
@@ -95,6 +94,7 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
     }
     
     
+    
     // MARK: - Table view data sourse
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -103,7 +103,6 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
             return 0
         }
         return rssItems.count
-  
     }
     
     
@@ -133,13 +132,15 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
             detailVC.rssItem = rssItems?[indexPath.row]
         }
     }
-
-    
-    
-    
-    
     
 }
+
+
+
+
+
+
+
 
     // MARK: - Extension Collection View data sourse
 
@@ -197,7 +198,6 @@ extension NewsVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
      
         
           }
-     
        
     
     

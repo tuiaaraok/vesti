@@ -38,7 +38,7 @@
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MkJ-RF-EZ3">
-                                                        <rect key="frame" x="-5" y="12" width="107" height="17"/>
+                                                        <rect key="frame" x="-9" y="12" width="115" height="17"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="15"/>
                                                         <nil key="textColor"/>
@@ -190,10 +190,10 @@
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="1" green="0.86942623259999996" blue="0.83032945020000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="22"/>
+                            <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="25"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
-                            <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="33"/>
+                            <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="35"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
