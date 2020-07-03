@@ -15,13 +15,66 @@ class TableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        dateLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+        
+        createConstraints()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+    
+    func createConstraints() {
+        
+        dateLabel.widthAnchor.constraint(
+            equalTo: contentView.widthAnchor,
+            multiplier: 1
+        ).isActive = true
+                     
+        dateLabel.heightAnchor.constraint(
+            equalTo: contentView.heightAnchor,
+            multiplier: 1/9
+        ).isActive = true
+
+        dateLabel.centerYAnchor.constraint(
+            equalTo: contentView.centerYAnchor,
+            constant: -35
+        ).isActive = true
+
+        dateLabel.leftAnchor.constraint(
+            equalTo: contentView.leftAnchor,
+            constant: 15
+        ).isActive = true
+           
+           
+           
+           
+        titleLabel.bottomAnchor.constraint(
+            equalTo: contentView.bottomAnchor,
+            constant: 5
+        ).isActive = true
+
+        titleLabel.centerYAnchor.constraint(
+            equalTo: contentView.centerYAnchor,
+            constant: 12
+        ).isActive = true
+
+        titleLabel.centerXAnchor.constraint(
+            equalTo: contentView.centerXAnchor,
+            constant: 12
+        ).isActive = true
+           
+        titleLabel.leftAnchor.constraint(
+            equalTo: contentView.leftAnchor,
+            constant: 15
+        ).isActive = true
+           
+        titleLabel.rightAnchor.constraint(
+            equalTo: contentView.rightAnchor,
+            constant: -15
+        ).isActive = true
+        
     }
 
 }

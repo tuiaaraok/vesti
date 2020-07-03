@@ -143,7 +143,7 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
 
     // MARK: - Extension Collection View data sourse
 
-extension NewsVC: UICollectionViewDelegate, UICollectionViewDataSource {
+extension NewsVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     
     
