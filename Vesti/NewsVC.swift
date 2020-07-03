@@ -46,6 +46,10 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
     
     var previousSelected : IndexPath?
     var currentSelected : Int?
+    var myRefreshControl = UIRefreshControl()
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +62,11 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
         tableView.dataSource = self
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self
+        
+        myRefreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
+        tableView.refreshControl = myRefreshControl
+        
+        categoryFilter(.all)
         
         
     }
@@ -92,6 +101,21 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
             rssItems = currentItems
         }
     }
+    
+    
+    // pull to refresh
+    @objc private func refresh(sender: UIRefreshControl) {
+        
+           if category == nil {
+            viewDidLoad()
+           } else {
+            categoryFilter(category!)
+        }
+        sender.endRefreshing()
+        
+    }
+    
+    
     
     
     
