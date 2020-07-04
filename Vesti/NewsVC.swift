@@ -71,6 +71,10 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchData()
+    }
     
     
     // MARK: - Fetch data
@@ -107,7 +111,7 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
     @objc private func refresh(sender: UIRefreshControl) {
         
            if category == nil {
-            viewDidLoad()
+            viewWillAppear(true)
            } else {
             categoryFilter(category!)
         }
