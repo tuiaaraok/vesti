@@ -11,19 +11,19 @@ import UIKit
 
  enum Categories: String, CaseIterable {
         
-    case all = "Все"
-    case society = "Общество"
-    case politics = "Политика"
-    case sport = "Спорт"
-    case culture = "Культура"
-    case science = "Наука"
-    case ecinomics = "Экономика"
-    case acsident = "Происшествия"
-    case medicine = "Медицина"
-    case auto = "Авто"
-    case regions = "Регионы"
-    case hiTech = "Hi-tech"
-    case exclusive = "Эксклюзив"
+    case all = "все"
+    case society = "общество"
+    case politics = "политика"
+    case sport = "спорт"
+    case culture = "культура"
+    case science = "наука"
+    case ecinomics = "экономика"
+    case acsident = "происшествия"
+    case medicine = "медицина"
+    case auto = "авто"
+    case regions = "регионы"
+    case hiTech = "hi-tech"
+    case exclusive = "эксклюзив"
         
 }
 
@@ -96,7 +96,7 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
        
     private func categoryFilter(_ sender: Categories) {
         
-        if sender.rawValue == "Все" {
+        if sender.rawValue == "все" {
             fetchData()
         } else {
             currentItems = rssItems
