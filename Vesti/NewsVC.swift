@@ -71,10 +71,11 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        fetchData()
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        fetchData()
+//        categoryFilter(category!)
+//    }
     
     
     // MARK: - Fetch data

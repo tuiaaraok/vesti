@@ -15,15 +15,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Вести" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2g-HZ-2TE">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вести" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2g-HZ-2TE">
                                 <rect key="frame" x="155" y="428" width="104" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="104" id="8Zb-4J-LmC"/>
+                                    <constraint firstAttribute="height" constant="40" id="M2u-GD-Nuj"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="36"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.86942623259999996" blue="0.83032945020000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="S2g-HZ-2TE" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="n7b-1u-QFH"/>
+                            <constraint firstItem="S2g-HZ-2TE" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="sav-g6-GAD"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
