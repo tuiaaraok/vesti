@@ -21,7 +21,7 @@ struct RSSItem {
        case fullText = "yandex:full-text"
        case pubDate = "pubDate"
        case category = "category"
-       case images = "enclosure"
+       case images = "enclosure url="
          }
    }
  
