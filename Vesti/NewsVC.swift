@@ -24,7 +24,6 @@ import UIKit
     case regions = "регионы"
     case hiTech = "hi-tech"
     case exclusive = "эксклюзив"
-        
 }
 
 class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLParserDelegate {
@@ -43,14 +42,11 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
     private var currentItems: [RSSItem]?
     private var url = "https://www.vesti.ru/vesti.rss"
     
-    
     var previousSelected : IndexPath?
     var currentSelected : Int?
     var myRefreshControl = UIRefreshControl()
     
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -67,19 +63,13 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
         tableView.refreshControl = myRefreshControl
         
         categoryFilter(.all)
-        
-        
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        fetchData()
-//        categoryFilter(category!)
-//    }
-    
+
     
     // MARK: - Fetch data
+    
     private func fetchData() {
+        
         let feedParser = ParserManager()
         let _ : ParserManager = ParserManager().initWithURL(URL(string: url)!) as! ParserManager
         feedParser.parseFeed(url: url) { (rssItems) in
@@ -89,9 +79,6 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
             }
         }
     }
-    
-    
-    
     
     // Filter by category
        
@@ -107,7 +94,6 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
         }
     }
     
-    
     // pull to refresh
     @objc private func refresh(sender: UIRefreshControl) {
         
@@ -117,27 +103,19 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
             categoryFilter(category!)
         }
         sender.endRefreshing()
-        
     }
-    
-    
-    
     
     
     // MARK: - Table view data sourse
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        guard let rssItems = rssItems else  {
-            return 0
-        }
+        guard let rssItems = rssItems else  { return 0 }
         return rssItems.count
     }
     
-    
-    
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         
         if let rssItem = rssItems?[indexPath.row] {
@@ -161,37 +139,24 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
             detailVC.rssItem = rssItems?[indexPath.row]
         }
     }
-    
 }
-
-
-
-
-
-
-
 
     // MARK: - Extension Collection View data sourse
 
 extension NewsVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         return categories.count
     }
     
-    
-    
-    
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collcell", for: indexPath) as! CollectionViewCell
                   
         cell.categoryLabel.text = categories[indexPath.item].rawValue
         cell.categoryLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
                  
-                  
         // To set the font style on click
                   
         if currentSelected != nil && currentSelected == indexPath.row {
@@ -201,10 +166,6 @@ extension NewsVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         }
         return cell
     }
-    
-    
-    
-    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
@@ -224,13 +185,10 @@ extension NewsVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         // Set action when clicking on a cell
         category = categories[indexPath.item]
         categoryFilter(category!)
-     
-        
-          }
+    }
        
-    
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
            return CGSize(width: 100, height: 40.0)
        }
 }

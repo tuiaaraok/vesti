@@ -18,7 +18,6 @@ class DetailVC: UIViewController {
     
     var rssItem: RSSItem!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,31 +34,25 @@ class DetailVC: UIViewController {
         fullTextLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         titleLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         
-     
-        dateLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        mainImage.translatesAutoresizingMaskIntoConstraints = false
-        fullTextLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        
         createConstraints()
         fetchImage()
-   
     }
     
     func fetchImage() {
+        
         let url = NSURL(string: rssItem.images["image"]!)
         let data = NSData(contentsOf:url! as URL)
         let image = UIImage(data:data! as Data)
         mainImage.image = image
     }
 
-    
-    
-    
     // create function to set the constraints
     func createConstraints() {
         
+        dateLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        mainImage.translatesAutoresizingMaskIntoConstraints = false
+        fullTextLabel.translatesAutoresizingMaskIntoConstraints = false
         
         mainImage.topAnchor.constraint(
             equalTo: scroll.topAnchor,
@@ -90,9 +83,7 @@ class DetailVC: UIViewController {
               ).isActive = true
           }
         
-        
-        
-        
+
         titleLabel.topAnchor.constraint(
             equalTo: mainImage.bottomAnchor,
             constant: 20
@@ -107,9 +98,7 @@ class DetailVC: UIViewController {
             constant: 15
             ).isActive = true
         
-        
-        
-        
+
         dateLabel.topAnchor.constraint(
             equalTo: titleLabel.bottomAnchor,
             constant: 20
@@ -124,15 +113,12 @@ class DetailVC: UIViewController {
             equalTo: view.leadingAnchor,
             constant: 15
             ).isActive = true
-               
-        
-        
+
         
         fullTextLabel.topAnchor.constraint(
             equalTo: dateLabel.bottomAnchor
             ).isActive = true
                                 
-
         fullTextLabel.centerXAnchor.constraint(
             equalTo: view.centerXAnchor
             ).isActive = true
@@ -147,8 +133,6 @@ class DetailVC: UIViewController {
                    ).isActive = true
                }
 }
-
-
 
 extension UILabel {
 

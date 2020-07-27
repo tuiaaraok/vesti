@@ -16,8 +16,6 @@ class TableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        dateLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         
         createConstraints()
@@ -26,6 +24,9 @@ class TableViewCell: UITableViewCell {
 
     
     func createConstraints() {
+        
+        dateLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         dateLabel.widthAnchor.constraint(
             equalTo: contentView.widthAnchor,
@@ -46,8 +47,6 @@ class TableViewCell: UITableViewCell {
             equalTo: contentView.leftAnchor,
             constant: 15
         ).isActive = true
-           
-           
            
            
         titleLabel.bottomAnchor.constraint(
@@ -74,7 +73,5 @@ class TableViewCell: UITableViewCell {
             equalTo: contentView.rightAnchor,
             constant: -15
         ).isActive = true
-        
     }
-
 }

@@ -9,6 +9,7 @@
 import Foundation
 
 struct RSSItem {
+    
        var title: String
        var fullText: String
        var pubDate: String
@@ -17,6 +18,7 @@ struct RSSItem {
     
        
    enum CodingKeys: String, CodingKey {
+    
        case title = "title"
        case fullText = "yandex:full-text"
        case pubDate = "pubDate"
@@ -24,8 +26,6 @@ struct RSSItem {
        case images = "enclosure url="
          }
    }
- 
-
 
 class ParserManager: NSObject, XMLParserDelegate {
 
@@ -35,12 +35,9 @@ class ParserManager: NSObject, XMLParserDelegate {
     private var element = NSString()
     private var parser = XMLParser()
     private var parserCompletionHandler: (([RSSItem]) -> Void)?
-    
-    var images: [String : String] = [:]
-    
     private var currentElement = ""
     
-    
+    var images: [String : String] = [:]
     
     private var currentTitle: String = "" {
         didSet {
@@ -62,22 +59,16 @@ class ParserManager: NSObject, XMLParserDelegate {
             currentFullText = currentFullText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
     }
-
-   
-   
-
-  
         
     // initilise parser
     func initWithURL(_ url :URL) -> AnyObject {
+        
         parser = XMLParser(contentsOf: url)!
         return self
     }
 
-    
-   
-    
     func parseFeed(url: String, completionHandler: (([RSSItem]) -> Void)?) {
+        
         self.parserCompletionHandler = completionHandler
         
         let request = URLRequest(url: URL(string: url)!)
@@ -98,14 +89,10 @@ class ParserManager: NSObject, XMLParserDelegate {
         task.resume()
     }
     
-    
-    
-    
-    
     // MARK: - XML Parser Delegate
     
-    
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
+        
        currentElement = elementName
         if currentElement == "item" {
             currentTitle = ""
@@ -123,10 +110,8 @@ class ParserManager: NSObject, XMLParserDelegate {
                }
            }
 
-    
-    
-    
     func parser(_ parser: XMLParser, foundCharacters string: String) {
+        
         switch currentElement {
         case "title":
             currentTitle += string
@@ -141,27 +126,22 @@ class ParserManager: NSObject, XMLParserDelegate {
         }
     }
     
-    
-    
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+        
         if elementName == "item" {
          
             let rssItem = RSSItem(title: currentTitle, fullText: currentFullText, pubDate: currentTPubDate, category: currentCategory, images: images)
             self.rssItems.append(rssItem)
-    
         }
     }
     
-    
-    
     func parserDidEndDocument(_ parser: XMLParser) {
+        
         parserCompletionHandler?(rssItems)
     }
     
-    
-    
     func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
+        
         print(parseError.localizedDescription)
     }
-
 }
