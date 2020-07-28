@@ -32,6 +32,7 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var categoryCollectionView: UICollectionView!
+    @IBOutlet var errorLabel: UILabel!
     
     
     // MARK: - Private properties
@@ -39,7 +40,7 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
     private let categories = Categories.allCases
     private var category: Categories?
     private var rssItems: [RSSItem]?
-    private var currentItems: [RSSItem]?
+    private var filteredItems: [RSSItem]?
     private var url = "https://www.vesti.ru/vesti.rss"
     
     var previousSelected : IndexPath?
@@ -49,6 +50,8 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        errorLabel.isHidden = true
         
         fetchData()
         
@@ -61,10 +64,8 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
         
         myRefreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
         tableView.refreshControl = myRefreshControl
-        
-        categoryFilter(.all)
+    
     }
-
     
     // MARK: - Fetch data
     
@@ -82,25 +83,31 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
     
     // Filter by category
        
-    private func categoryFilter(_ sender: Categories) {
+    private func categoryFilter(_ sender: Categories) -> [RSSItem]{
         
         if sender.rawValue == "все" {
             fetchData()
+            return rssItems!
         } else {
-            currentItems = rssItems
-            rssItems = rssItems!.filter{$0.category == sender.rawValue}
+            errorLabel.isHidden = true
+            filteredItems = rssItems!.filter{$0.category == sender.rawValue}
             tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
-            rssItems = currentItems
-        }
+            
+            if filteredItems?.count == 0 {
+                errorLabel.isHidden = false
+                errorLabel.text = "В этой категории пока нет новостей"
+            }
+            return filteredItems!
+           }
     }
     
     // pull to refresh
     @objc private func refresh(sender: UIRefreshControl) {
         
-           if category == nil {
-            viewWillAppear(true)
-           } else {
-            categoryFilter(category!)
+         fetchData()
+           if category != nil {
+            filteredItems = rssItems!.filter{$0.category == category!.rawValue}
+            tableView.reloadData()
         }
         sender.endRefreshing()
     }
@@ -111,19 +118,19 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         guard let rssItems = rssItems else  { return 0 }
-        return rssItems.count
+        return filteredItems?.count ?? rssItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         
-        if let rssItem = rssItems?[indexPath.row] {
+        if let rssItem = filteredItems?[indexPath.row] ?? rssItems?[indexPath.row] {
             let dateText = rssItem.pubDate
             let endIndex = dateText.index(dateText.endIndex , offsetBy: -9)
-            let truncated = dateText.substring(to: endIndex)
+            let newStr = String(dateText[..<endIndex])
             
-            cell.dateLabel.text = truncated
+            cell.dateLabel.text = newStr
             cell.titleLabel.text = rssItem.title
         }
         return cell
@@ -134,9 +141,10 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         guard segue.identifier == "detail" else { return }
+        
         if let indexPath = tableView.indexPathForSelectedRow {
             let detailVC = segue.destination as! DetailVC
-            detailVC.rssItem = rssItems?[indexPath.row]
+            detailVC.rssItem = filteredItems?[indexPath.row] ?? rssItems?[indexPath.row]
         }
     }
 }
@@ -167,6 +175,8 @@ extension NewsVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         return cell
     }
     
+    // MARK: - Collection view delegate
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         // For remove previously selection
@@ -184,7 +194,7 @@ extension NewsVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
            
         // Set action when clicking on a cell
         category = categories[indexPath.item]
-        categoryFilter(category!)
+        filteredItems = categoryFilter(category!)
     }
        
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

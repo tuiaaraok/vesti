@@ -24,10 +24,10 @@ class DetailVC: UIViewController {
         fullTextLabel.setLineSpacing(lineSpacing: 1.2, lineHeightMultiple: 1.2)
         
         let dateText = rssItem.pubDate
-        let endIndex = dateText.index(dateText.endIndex , offsetBy: -15)
-        let truncated = dateText.substring(to: endIndex)
+        let endIndex = dateText.index(dateText.endIndex , offsetBy: -9)
+        let newStr = String(dateText[..<endIndex])
 
-        dateLabel.text = truncated
+        dateLabel.text = newStr
         titleLabel.text = rssItem.title
         fullTextLabel.text = rssItem.fullText
         
@@ -74,12 +74,12 @@ class DetailVC: UIViewController {
         if currentHeight > 736 {
               mainImage.heightAnchor.constraint(
               equalTo: view.heightAnchor,
-              multiplier: 243/1000
+              multiplier: 320/1000
               ).isActive = true
           } else {
               mainImage.heightAnchor.constraint(
               equalTo: view.heightAnchor,
-              multiplier: 243/830
+              multiplier: 325/830
               ).isActive = true
           }
         
