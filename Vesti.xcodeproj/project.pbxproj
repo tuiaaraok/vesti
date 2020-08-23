@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63CEBA4624EFC36700882B38 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CEBA4524EFC36700882B38 /* Categories.swift */; };
+		63CEBA4824EFC3C100882B38 /* DataFetcherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CEBA4724EFC3C100882B38 /* DataFetcherService.swift */; };
+		63CEBA5224F03BAB00882B38 /* CategoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CEBA5124F03BAB00882B38 /* CategoryManager.swift */; };
+		63CEBA5424F0401800882B38 /* RSSItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CEBA5324F0401800882B38 /* RSSItem.swift */; };
 		63F1BC4A24AE2255003DEAF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F1BC4924AE2255003DEAF0 /* AppDelegate.swift */; };
 		63F1BC4C24AE2255003DEAF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F1BC4B24AE2255003DEAF0 /* SceneDelegate.swift */; };
 		63F1BC4E24AE2255003DEAF0 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F1BC4D24AE2255003DEAF0 /* NewsVC.swift */; };
@@ -20,6 +24,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		63CEBA4524EFC36700882B38 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		63CEBA4724EFC3C100882B38 /* DataFetcherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcherService.swift; sourceTree = "<group>"; };
+		63CEBA5124F03BAB00882B38 /* CategoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryManager.swift; sourceTree = "<group>"; };
+		63CEBA5324F0401800882B38 /* RSSItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSItem.swift; sourceTree = "<group>"; };
 		63F1BC4624AE2255003DEAF0 /* Вести.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Вести.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63F1BC4924AE2255003DEAF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63F1BC4B24AE2255003DEAF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +53,63 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		63CEBA4924EFC44D00882B38 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				63F1BC4D24AE2255003DEAF0 /* NewsVC.swift */,
+				63F1BC5D24AE22B8003DEAF0 /* DetailVC.swift */,
+				63F1BC6724AF2749003DEAF0 /* CollectionViewCell.swift */,
+				63F1BC5F24AE22EF003DEAF0 /* TableViewCell.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		63CEBA4C24EFCC9A00882B38 /* UIBuilders */ = {
+			isa = PBXGroup;
+			children = (
+				63F1BC4F24AE2255003DEAF0 /* Main.storyboard */,
+				63F1BC5424AE2256003DEAF0 /* LaunchScreen.storyboard */,
+			);
+			path = UIBuilders;
+			sourceTree = "<group>";
+		};
+		63CEBA4D24EFCCAB00882B38 /* Support files */ = {
+			isa = PBXGroup;
+			children = (
+				63F1BC5724AE2256003DEAF0 /* Info.plist */,
+				63F1BC5224AE2256003DEAF0 /* Assets.xcassets */,
+				63F1BC4924AE2255003DEAF0 /* AppDelegate.swift */,
+				63F1BC4B24AE2255003DEAF0 /* SceneDelegate.swift */,
+			);
+			path = "Support files";
+			sourceTree = "<group>";
+		};
+		63CEBA4E24F00C0A00882B38 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				63CEBA4524EFC36700882B38 /* Categories.swift */,
+				63CEBA5324F0401800882B38 /* RSSItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		63CEBA4F24F00CC800882B38 /* ParserManager */ = {
+			isa = PBXGroup;
+			children = (
+				63F1BC6124AE2479003DEAF0 /* ParserManager.swift */,
+				63CEBA4724EFC3C100882B38 /* DataFetcherService.swift */,
+			);
+			path = ParserManager;
+			sourceTree = "<group>";
+		};
+		63CEBA5024F03B7A00882B38 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				63CEBA5124F03BAB00882B38 /* CategoryManager.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		63F1BC3D24AE2255003DEAF0 = {
 			isa = PBXGroup;
 			children = (
@@ -64,17 +129,12 @@
 		63F1BC4824AE2255003DEAF0 /* Vesti */ = {
 			isa = PBXGroup;
 			children = (
-				63F1BC4924AE2255003DEAF0 /* AppDelegate.swift */,
-				63F1BC4B24AE2255003DEAF0 /* SceneDelegate.swift */,
-				63F1BC4D24AE2255003DEAF0 /* NewsVC.swift */,
-				63F1BC5D24AE22B8003DEAF0 /* DetailVC.swift */,
-				63F1BC5F24AE22EF003DEAF0 /* TableViewCell.swift */,
-				63F1BC6724AF2749003DEAF0 /* CollectionViewCell.swift */,
-				63F1BC6124AE2479003DEAF0 /* ParserManager.swift */,
-				63F1BC4F24AE2255003DEAF0 /* Main.storyboard */,
-				63F1BC5224AE2256003DEAF0 /* Assets.xcassets */,
-				63F1BC5424AE2256003DEAF0 /* LaunchScreen.storyboard */,
-				63F1BC5724AE2256003DEAF0 /* Info.plist */,
+				63CEBA4D24EFCCAB00882B38 /* Support files */,
+				63CEBA4924EFC44D00882B38 /* ViewControllers */,
+				63CEBA4E24F00C0A00882B38 /* Models */,
+				63CEBA4F24F00CC800882B38 /* ParserManager */,
+				63CEBA5024F03B7A00882B38 /* Helpers */,
+				63CEBA4C24EFCC9A00882B38 /* UIBuilders */,
 			);
 			path = Vesti;
 			sourceTree = "<group>";
@@ -151,9 +211,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				63F1BC6024AE22EF003DEAF0 /* TableViewCell.swift in Sources */,
+				63CEBA5224F03BAB00882B38 /* CategoryManager.swift in Sources */,
+				63CEBA4624EFC36700882B38 /* Categories.swift in Sources */,
 				63F1BC4E24AE2255003DEAF0 /* NewsVC.swift in Sources */,
 				63F1BC5E24AE22B8003DEAF0 /* DetailVC.swift in Sources */,
+				63CEBA5424F0401800882B38 /* RSSItem.swift in Sources */,
 				63F1BC6824AF2749003DEAF0 /* CollectionViewCell.swift in Sources */,
+				63CEBA4824EFC3C100882B38 /* DataFetcherService.swift in Sources */,
 				63F1BC4A24AE2255003DEAF0 /* AppDelegate.swift in Sources */,
 				63F1BC6224AE2479003DEAF0 /* ParserManager.swift in Sources */,
 				63F1BC4C24AE2255003DEAF0 /* SceneDelegate.swift in Sources */,
@@ -302,7 +366,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4825WAP7SS;
-				INFOPLIST_FILE = Vesti/Info.plist;
+				INFOPLIST_FILE = "Vesti/Support files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,7 +384,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4825WAP7SS;
-				INFOPLIST_FILE = Vesti/Info.plist;
+				INFOPLIST_FILE = "Vesti/Support files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
