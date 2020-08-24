@@ -22,8 +22,10 @@ class DetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         setupDetailScreen()
         dataFetcherService.fetchImage(rssItem: rssItem, mainImage)
+        scroll.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height+fullTextLabel.bounds.height)
     }
     
     private func setupDetailScreen() {
@@ -41,6 +43,7 @@ class DetailVC: UIViewController {
         titleLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
     }
 }
+    
 
 extension UILabel {
 

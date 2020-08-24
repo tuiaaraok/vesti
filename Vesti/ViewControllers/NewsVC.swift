@@ -45,7 +45,6 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
             }
     }
     
-    // pull to refresh
     @objc private func refresh(sender: UIRefreshControl) {
         
         dataFetcherService.fetchData(completion: fetch(rssItems:))
@@ -97,7 +96,7 @@ extension NewsVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collcell", for: indexPath) as! CollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collcell", for: indexPath) as! CategoryCollectionViewCell
     
         cell.configure(indexPath, currentSelected)
                  
@@ -109,7 +108,7 @@ extension NewsVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if previousSelected != nil{
-            if let cell = collectionView.cellForItem(at: previousSelected!) as! CollectionViewCell?{
+            if let cell = collectionView.cellForItem(at: previousSelected!) as! CategoryCollectionViewCell?{
                 cell.categoryLabel.font = UIFont(name: "Palatino-Roman", size: 15)
             }
         }

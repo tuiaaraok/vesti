@@ -8,13 +8,13 @@
 
 import UIKit
 
-class CollectionViewCell: UICollectionViewCell {
+class CategoryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var categoryLabel: UILabel!
     
     func configure(_ indexPath: IndexPath, _ currentSelected: Int?) {
        
-        var newsVC = NewsVC()
+        let newsVC = NewsVC()
         categoryLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         categoryLabel.text = newsVC.categories[indexPath.item].rawValue
     
