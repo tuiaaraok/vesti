@@ -3,10 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		633C7985259734300006E938 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633C7984259734300006E938 /* CategoryViewController.swift */; };
+		633C7987259745780006E938 /* CategoryVCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633C7986259745780006E938 /* CategoryVCViewModel.swift */; };
+		633C79892597470D0006E938 /* CategoryTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633C79882597470D0006E938 /* CategoryTableViewCellViewModel.swift */; };
+		633C798B2597495B0006E938 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633C798A2597495B0006E938 /* CategoryTableViewCell.swift */; };
+		63AD7E2A2591FB3300868903 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AD7E292591FB3300868903 /* ViewModel.swift */; };
+		63AD7E2C2591FB8300868903 /* TableViewViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AD7E2B2591FB8300868903 /* TableViewViewModelType.swift */; };
+		63AD7E2F2591FBAE00868903 /* TableViewCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AD7E2E2591FBAE00868903 /* TableViewCellViewModelType.swift */; };
+		63AD7E312591FBE000868903 /* TableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AD7E302591FBE000868903 /* TableViewCellViewModel.swift */; };
+		63AD7E332591FC0600868903 /* DetailViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AD7E322591FC0600868903 /* DetailViewModelType.swift */; };
+		63AD7E352591FC3D00868903 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AD7E342591FC3D00868903 /* DetailViewModel.swift */; };
 		63CEBA4624EFC36700882B38 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CEBA4524EFC36700882B38 /* Categories.swift */; };
 		63CEBA4824EFC3C100882B38 /* DataFetcherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CEBA4724EFC3C100882B38 /* DataFetcherService.swift */; };
 		63CEBA5224F03BAB00882B38 /* CategoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CEBA5124F03BAB00882B38 /* CategoryManager.swift */; };
@@ -18,12 +28,23 @@
 		63F1BC5324AE2256003DEAF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63F1BC5224AE2256003DEAF0 /* Assets.xcassets */; };
 		63F1BC5624AE2256003DEAF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63F1BC5424AE2256003DEAF0 /* LaunchScreen.storyboard */; };
 		63F1BC5E24AE22B8003DEAF0 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F1BC5D24AE22B8003DEAF0 /* DetailVC.swift */; };
-		63F1BC6024AE22EF003DEAF0 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F1BC5F24AE22EF003DEAF0 /* TableViewCell.swift */; };
+		63F1BC6024AE22EF003DEAF0 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F1BC5F24AE22EF003DEAF0 /* NewsTableViewCell.swift */; };
 		63F1BC6224AE2479003DEAF0 /* ParserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F1BC6124AE2479003DEAF0 /* ParserManager.swift */; };
-		63F1BC6824AF2749003DEAF0 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F1BC6724AF2749003DEAF0 /* CategoryCollectionViewCell.swift */; };
+		7535589CCDD44252920704A0 /* Pods_Vesti.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE6623AB401B5FAE5CFB63A1 /* Pods_Vesti.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		363EC55E6C146318749A8981 /* Pods-Vesti.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vesti.release.xcconfig"; path = "Target Support Files/Pods-Vesti/Pods-Vesti.release.xcconfig"; sourceTree = "<group>"; };
+		633C7984259734300006E938 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		633C7986259745780006E938 /* CategoryVCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVCViewModel.swift; sourceTree = "<group>"; };
+		633C79882597470D0006E938 /* CategoryTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		633C798A2597495B0006E938 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		63AD7E292591FB3300868903 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		63AD7E2B2591FB8300868903 /* TableViewViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewViewModelType.swift; sourceTree = "<group>"; };
+		63AD7E2E2591FBAE00868903 /* TableViewCellViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellViewModelType.swift; sourceTree = "<group>"; };
+		63AD7E302591FBE000868903 /* TableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellViewModel.swift; sourceTree = "<group>"; };
+		63AD7E322591FC0600868903 /* DetailViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelType.swift; sourceTree = "<group>"; };
+		63AD7E342591FC3D00868903 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		63CEBA4524EFC36700882B38 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		63CEBA4724EFC3C100882B38 /* DataFetcherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcherService.swift; sourceTree = "<group>"; };
 		63CEBA5124F03BAB00882B38 /* CategoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryManager.swift; sourceTree = "<group>"; };
@@ -37,9 +58,10 @@
 		63F1BC5524AE2256003DEAF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63F1BC5724AE2256003DEAF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63F1BC5D24AE22B8003DEAF0 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
-		63F1BC5F24AE22EF003DEAF0 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		63F1BC5F24AE22EF003DEAF0 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		63F1BC6124AE2479003DEAF0 /* ParserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserManager.swift; sourceTree = "<group>"; };
-		63F1BC6724AF2749003DEAF0 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		756096634FEADB883C0B594F /* Pods-Vesti.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vesti.debug.xcconfig"; path = "Target Support Files/Pods-Vesti/Pods-Vesti.debug.xcconfig"; sourceTree = "<group>"; };
+		DE6623AB401B5FAE5CFB63A1 /* Pods_Vesti.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vesti.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,21 +69,62 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7535589CCDD44252920704A0 /* Pods_Vesti.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		63CEBA4924EFC44D00882B38 /* ViewControllers */ = {
+		32DB4CC705B7E023E1530E3D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DE6623AB401B5FAE5CFB63A1 /* Pods_Vesti.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3CDA1BCFDC256E633950C39B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				756096634FEADB883C0B594F /* Pods-Vesti.debug.xcconfig */,
+				363EC55E6C146318749A8981 /* Pods-Vesti.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		63AD7E272591FAD100868903 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				63AD7E292591FB3300868903 /* ViewModel.swift */,
+				63AD7E302591FBE000868903 /* TableViewCellViewModel.swift */,
+				633C7986259745780006E938 /* CategoryVCViewModel.swift */,
+				633C79882597470D0006E938 /* CategoryTableViewCellViewModel.swift */,
+				63AD7E342591FC3D00868903 /* DetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		63AD7E282591FAED00868903 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				63F1BC4D24AE2255003DEAF0 /* NewsVC.swift */,
-				63F1BC6724AF2749003DEAF0 /* CategoryCollectionViewCell.swift */,
-				63F1BC5F24AE22EF003DEAF0 /* TableViewCell.swift */,
+				63F1BC5F24AE22EF003DEAF0 /* NewsTableViewCell.swift */,
 				63F1BC5D24AE22B8003DEAF0 /* DetailVC.swift */,
+				633C7984259734300006E938 /* CategoryViewController.swift */,
+				633C798A2597495B0006E938 /* CategoryTableViewCell.swift */,
 			);
-			path = ViewControllers;
+			path = View;
+			sourceTree = "<group>";
+		};
+		63AD7E2D2591FB8800868903 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				63AD7E2B2591FB8300868903 /* TableViewViewModelType.swift */,
+				63AD7E2E2591FBAE00868903 /* TableViewCellViewModelType.swift */,
+				63AD7E322591FC0600868903 /* DetailViewModelType.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		63CEBA4C24EFCC9A00882B38 /* UIBuilders */ = {
@@ -84,13 +147,12 @@
 			path = "Support files";
 			sourceTree = "<group>";
 		};
-		63CEBA4E24F00C0A00882B38 /* Models */ = {
+		63CEBA4E24F00C0A00882B38 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				63CEBA4524EFC36700882B38 /* Categories.swift */,
 				63CEBA5324F0401800882B38 /* RSSItem.swift */,
 			);
-			path = Models;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		63CEBA4F24F00CC800882B38 /* ParserManager */ = {
@@ -114,7 +176,10 @@
 			isa = PBXGroup;
 			children = (
 				63F1BC4824AE2255003DEAF0 /* Vesti */,
+				63CEBA4D24EFCCAB00882B38 /* Support files */,
 				63F1BC4724AE2255003DEAF0 /* Products */,
+				3CDA1BCFDC256E633950C39B /* Pods */,
+				32DB4CC705B7E023E1530E3D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,12 +194,14 @@
 		63F1BC4824AE2255003DEAF0 /* Vesti */ = {
 			isa = PBXGroup;
 			children = (
-				63CEBA4D24EFCCAB00882B38 /* Support files */,
-				63CEBA4924EFC44D00882B38 /* ViewControllers */,
-				63CEBA4E24F00C0A00882B38 /* Models */,
+				63CEBA4524EFC36700882B38 /* Categories.swift */,
+				63CEBA4E24F00C0A00882B38 /* Model */,
+				63AD7E282591FAED00868903 /* View */,
+				63AD7E272591FAD100868903 /* ViewModel */,
 				63CEBA4F24F00CC800882B38 /* ParserManager */,
 				63CEBA5024F03B7A00882B38 /* Helpers */,
 				63CEBA4C24EFCC9A00882B38 /* UIBuilders */,
+				63AD7E2D2591FB8800868903 /* Protocols */,
 			);
 			path = Vesti;
 			sourceTree = "<group>";
@@ -146,9 +213,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 63F1BC5A24AE2256003DEAF0 /* Build configuration list for PBXNativeTarget "Vesti" */;
 			buildPhases = (
+				F1B806448D9A873A0D50D1A9 /* [CP] Check Pods Manifest.lock */,
 				63F1BC4224AE2255003DEAF0 /* Sources */,
 				63F1BC4324AE2255003DEAF0 /* Frameworks */,
 				63F1BC4424AE2255003DEAF0 /* Resources */,
+				56F6B8380A2297D9388E48A3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -205,22 +274,73 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		56F6B8380A2297D9388E48A3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Vesti/Pods-Vesti-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Vesti/Pods-Vesti-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Vesti/Pods-Vesti-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1B806448D9A873A0D50D1A9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Vesti-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		63F1BC4224AE2255003DEAF0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63F1BC6024AE22EF003DEAF0 /* TableViewCell.swift in Sources */,
+				63AD7E352591FC3D00868903 /* DetailViewModel.swift in Sources */,
+				633C7987259745780006E938 /* CategoryVCViewModel.swift in Sources */,
+				63AD7E312591FBE000868903 /* TableViewCellViewModel.swift in Sources */,
+				633C79892597470D0006E938 /* CategoryTableViewCellViewModel.swift in Sources */,
+				63AD7E2F2591FBAE00868903 /* TableViewCellViewModelType.swift in Sources */,
+				63AD7E2C2591FB8300868903 /* TableViewViewModelType.swift in Sources */,
+				63F1BC6024AE22EF003DEAF0 /* NewsTableViewCell.swift in Sources */,
 				63CEBA5224F03BAB00882B38 /* CategoryManager.swift in Sources */,
+				63AD7E332591FC0600868903 /* DetailViewModelType.swift in Sources */,
 				63CEBA4624EFC36700882B38 /* Categories.swift in Sources */,
 				63F1BC4E24AE2255003DEAF0 /* NewsVC.swift in Sources */,
 				63F1BC5E24AE22B8003DEAF0 /* DetailVC.swift in Sources */,
 				63CEBA5424F0401800882B38 /* RSSItem.swift in Sources */,
-				63F1BC6824AF2749003DEAF0 /* CategoryCollectionViewCell.swift in Sources */,
 				63CEBA4824EFC3C100882B38 /* DataFetcherService.swift in Sources */,
+				633C7985259734300006E938 /* CategoryViewController.swift in Sources */,
 				63F1BC4A24AE2255003DEAF0 /* AppDelegate.swift in Sources */,
 				63F1BC6224AE2479003DEAF0 /* ParserManager.swift in Sources */,
+				63AD7E2A2591FB3300868903 /* ViewModel.swift in Sources */,
 				63F1BC4C24AE2255003DEAF0 /* SceneDelegate.swift in Sources */,
+				633C798B2597495B0006E938 /* CategoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +482,7 @@
 		};
 		63F1BC5B24AE2256003DEAF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 756096634FEADB883C0B594F /* Pods-Vesti.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -380,6 +501,7 @@
 		};
 		63F1BC5C24AE2256003DEAF0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 363EC55E6C146318749A8981 /* Pods-Vesti.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

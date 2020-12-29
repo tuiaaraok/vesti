@@ -10,23 +10,25 @@ import Foundation
 import UIKit
 
 class DataFetcherService {
+    static var shared = DataFetcherService()
     
-     var url = "https://www.vesti.ru/vesti.rss"
+    var urlString = "https://www.vesti.ru/vesti.rss"
+    var rssItems: [RSSItem]?
+    var imageData: Data?
     
-    func fetchImage(rssItem: RSSItem, _ mainImage: UIImageView) {
-        
+    func fetchImage(rssItem: RSSItem) {
         let url = NSURL(string: rssItem.images["image"]!)
         let data = NSData(contentsOf: url! as URL)
-        let image = UIImage(data:data! as Data)
-        mainImage.image = image
+        imageData = data as Data?
     }
     
-    func fetchData(completion: @escaping ([RSSItem]) -> ()) {
-        
+    func fetchData(completion: @escaping () -> ()) {
         let feedParser = ParserManager()
-        let _ : ParserManager = ParserManager().initWithURL(URL(string: url)!) as! ParserManager
+        guard let url = URL(string: urlString) else { return }
+        let _ : ParserManager = ParserManager().initWithURL(url) as! ParserManager
         feedParser.parseFeed(url: url) { (rssItems) in
-            completion(rssItems)
+            self.rssItems = rssItems
+            completion()
         }
     }
 }

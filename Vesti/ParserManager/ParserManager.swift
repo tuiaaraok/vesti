@@ -48,11 +48,11 @@ class ParserManager: NSObject, XMLParserDelegate {
         return self
     }
 
-    func parseFeed(url: String, completionHandler: (([RSSItem]) -> Void)?) {
+    func parseFeed(url: URL, completionHandler: (([RSSItem]) -> Void)?) {
         
         self.parserCompletionHandler = completionHandler
         
-        let request = URLRequest(url: URL(string: url)!)
+        let request = URLRequest(url: url)
         let urlSession = URLSession.shared
         let task = urlSession.dataTask(with: request) { (data, response, error) in
             guard let data = data else {

@@ -10,41 +10,43 @@ import UIKit
 
 class DetailVC: UIViewController {
 
-    @IBOutlet var mainImage: UIImageView!
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var dateLabel: UILabel!
-    @IBOutlet var fullTextLabel: UILabel!
-    @IBOutlet var scroll: UIScrollView!
+    @IBOutlet private var mainImage: UIImageView!
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var dateLabel: UILabel!
+    @IBOutlet private var fullTextLabel: UILabel!
+    @IBOutlet private var scroll: UIScrollView!
     
-    var rssItem: RSSItem!
-    var dataFetcherService = DataFetcherService()
+    var viewModel: DetailViewModelType?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         setupDetailScreen()
-        dataFetcherService.fetchImage(rssItem: rssItem, mainImage)
-        scroll.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height+fullTextLabel.bounds.height)
+        configureScreen()
     }
     
     private func setupDetailScreen() {
-          
-        let dateText = rssItem.pubDate
+        fullTextLabel.setLineSpacing(lineSpacing: 1.2, lineHeightMultiple: 1.2)
+        fullTextLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+        titleLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+        scroll.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height+fullTextLabel.bounds.height)
+    }
+    
+    private func configureScreen() {
+        guard let viewModel = viewModel else { return }
+                 
+        let dateText = viewModel.date
         let endIndex = dateText.index(dateText.endIndex , offsetBy: -9)
         let newStr = String(dateText[..<endIndex])
 
         dateLabel.text = newStr
-        titleLabel.text = rssItem.title
-        fullTextLabel.text = rssItem.fullText
-        
-        fullTextLabel.setLineSpacing(lineSpacing: 1.2, lineHeightMultiple: 1.2)
-        fullTextLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
-        titleLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+        titleLabel.text = viewModel.title
+        fullTextLabel.text = viewModel.fullText
+        guard let imageData = viewModel.image else { return }
+        mainImage.image = UIImage(data: imageData)
     }
 }
     
-
 extension UILabel {
 
     //create a function to set the interval

@@ -10,7 +10,7 @@ import Foundation
 
 enum Categories: String, CaseIterable {
         
-    case all = "все"
+    case all = "Главная"
     case society = "общество"
     case politics = "политика"
     case sport = "спорт"

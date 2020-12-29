@@ -9,24 +9,21 @@
 import Foundation
 import UIKit
 
-class CategoryManager {
+extension NewsVC {
     
-    func categoryFilter(_ rssItems: [RSSItem]?, by sender: Categories, _ errorLabel: UILabel, _ fetchData: (), _ tableView: UITableView) -> [RSSItem]{
-           
+    func categoryFilter(by sender: Categories) -> [RSSItem]?{
         var filteredItems: [RSSItem] = []
-        if sender.rawValue == "все" {
-            fetchData
-            return rssItems!
-        } else {
-            errorLabel.isHidden = true
-            filteredItems = rssItems!.filter{$0.category == sender.rawValue}
-            tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
-               
-            if filteredItems.count == 0 {
-                errorLabel.isHidden = false
-                errorLabel.text = "В этой категории пока нет новостей"
+        if let rssItems = DataFetcherService.shared.rssItems {
+            if sender.rawValue == "Главная" {
+                return rssItems
+            } else {
+                filteredItems = rssItems.filter{$0.category == sender.rawValue}
+                if filteredItems.count == 0 {
+                    return []
+                }
+                return filteredItems
             }
-            return filteredItems
-            }
+        }
+        return filteredItems
     }
 }

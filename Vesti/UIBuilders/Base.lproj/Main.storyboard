@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,58 +18,16 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RX2-6N-GHW">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionView key="tableHeaderView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="VYw-1G-lRl">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" red="1" green="0.96412329910000005" blue="0.94271054060000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TDf-N4-eYi">
-                                        <size key="itemSize" width="97" height="50"/>
-                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                        <size key="footerReferenceSize" width="50" height="50"/>
-                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    </collectionViewFlowLayout>
-                                    <cells>
-                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collcell" id="Lb0-db-U9d" customClass="CategoryCollectionViewCell" customModule="Вести">
-                                            <rect key="frame" x="0.0" y="2" width="97" height="40"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="H5U-uZ-8fi">
-                                                <rect key="frame" x="0.0" y="0.0" width="97" height="40"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MkJ-RF-EZ3">
-                                                        <rect key="frame" x="-9" y="12" width="115" height="17"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="15"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </collectionViewCellContentView>
-                                            <size key="customSize" width="97" height="40"/>
-                                            <connections>
-                                                <outlet property="categoryLabel" destination="MkJ-RF-EZ3" id="7To-fY-F4a"/>
-                                            </connections>
-                                        </collectionViewCell>
-                                    </cells>
-                                    <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="footer" id="rOc-cD-UkM">
-                                        <rect key="frame" x="97" y="0.0" width="50" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                    </collectionReusableView>
-                                    <connections>
-                                        <outlet property="dataSource" destination="BYZ-38-t0r" id="tuz-cg-MRq"/>
-                                        <outlet property="delegate" destination="BYZ-38-t0r" id="q6o-Bc-c4I"/>
-                                    </connections>
-                                </collectionView>
                                 <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9sC-aD-GWL">
-                                    <rect key="frame" x="0.0" y="207" width="414" height="44"/>
+                                    <rect key="frame" x="0.0" y="163" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="19"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" rowHeight="107" id="1Ie-vq-rSS" customClass="TableViewCell" customModule="Вести" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="414" height="107"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" rowHeight="107" id="1Ie-vq-rSS" customClass="NewsTableViewCell" customModule="Вести" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="107"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Ie-vq-rSS" id="YrP-37-4lM">
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="107"/>
@@ -83,7 +40,7 @@
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hQ3-Bs-gxc">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="hQ3-Bs-gxc">
                                                     <rect key="frame" x="20" y="40" width="355" height="56"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="17"/>
@@ -93,9 +50,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="dateLabel" destination="PNW-ch-0gD" id="Jtf-Vh-UdH"/>
-                                            <outlet property="titleLabel" destination="hQ3-Bs-gxc" id="YX3-UT-5Zv"/>
-                                            <segue destination="99f-td-yEs" kind="show" identifier="detail" id="DzE-5U-6DK"/>
+                                            <outlet property="dateLabel" destination="PNW-ch-0gD" id="21S-4f-mXT"/>
+                                            <outlet property="titleLabel" destination="hQ3-Bs-gxc" id="wqi-dI-wa7"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -114,16 +70,73 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Вести" id="waU-jw-efr"/>
+                    <navigationItem key="navigationItem" title="Вести" id="waU-jw-efr">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="text.justify" catalog="system" id="2C6-wB-t0e">
+                            <connections>
+                                <segue destination="tTB-m2-pIZ" kind="presentation" id="YPH-AC-orM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="categoryCollectionView" destination="VYw-1G-lRl" id="OsD-Ff-2EN"/>
-                        <outlet property="errorLabel" destination="9sC-aD-GWL" id="otG-nR-foV"/>
+                        <outlet property="errorLabel" destination="9sC-aD-GWL" id="ukQ-2v-gXI"/>
                         <outlet property="tableView" destination="RX2-6N-GHW" id="66O-Bd-Lny"/>
+                        <segue destination="99f-td-yEs" kind="show" identifier="detail" id="JVY-Nf-Fku"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="118.52678571428571"/>
+        </scene>
+        <!--Категории-->
+        <scene sceneID="kFZ-8w-0lI">
+            <objects>
+                <viewController id="tTB-m2-pIZ" customClass="CategoryViewController" customModule="Вести" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rrJ-wt-Pj3">
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yvH-9F-2Ye">
+                                <rect key="frame" x="0.0" y="0.0" width="250" height="842"/>
+                                <color key="backgroundColor" red="1" green="0.86942623259999996" blue="0.83032945020000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="t4s-gI-vBk" customClass="CategoryTableViewCell" customModule="Вести" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="250" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t4s-gI-vBk" id="hc0-I5-pNZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="250" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" red="1" green="0.86942623259999996" blue="0.83032945020000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="z7o-cc-r8M" kind="unwind" unwindAction="unwindSegue:" id="ysr-aU-OEc"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="tTB-m2-pIZ" id="zQU-TN-H7Q"/>
+                                    <outlet property="delegate" destination="tTB-m2-pIZ" id="ZRF-WP-riI"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="yvH-9F-2Ye" secondAttribute="bottom" id="I9K-uc-YTd"/>
+                            <constraint firstItem="TUj-sx-Wwc" firstAttribute="trailing" secondItem="yvH-9F-2Ye" secondAttribute="trailing" id="IQ1-g6-aKW"/>
+                            <constraint firstItem="yvH-9F-2Ye" firstAttribute="leading" secondItem="TUj-sx-Wwc" secondAttribute="leading" id="Mag-67-QCV"/>
+                            <constraint firstItem="yvH-9F-2Ye" firstAttribute="top" secondItem="rrJ-wt-Pj3" secondAttribute="top" id="gVM-Qp-jrO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TUj-sx-Wwc"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Категории" largeTitleDisplayMode="never" id="QTh-GX-zIh"/>
+                    <size key="freeformSize" width="250" height="896"/>
+                    <connections>
+                        <outlet property="tableView" destination="yvH-9F-2Ye" id="xPV-wh-Kyh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZrD-Ss-C5E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="z7o-cc-r8M" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1048" y="904"/>
         </scene>
         <!--DetailVC-->
         <scene sceneID="5JP-q5-j3P">
@@ -140,28 +153,28 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sH1-Sl-tNX">
-                                                <rect key="frame" x="14" y="8" width="384" height="296"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dPK-DR-m8s">
-                                                <rect key="frame" x="14" y="387" width="195" height="16"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="14"/>
-                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGO-Bb-M8q">
-                                                <rect key="frame" x="15" y="423" width="384" height="19"/>
+                                                <rect key="frame" x="15" y="453" width="384" height="19"/>
                                                 <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8G6-0t-dUx">
-                                                <rect key="frame" x="15" y="317" width="384" height="56"/>
+                                                <rect key="frame" x="15" y="317" width="384" height="98"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="19"/>
                                                 <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sH1-Sl-tNX">
+                                                <rect key="frame" x="15" y="-14" width="384" height="350"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dPK-DR-m8s">
+                                                <rect key="frame" x="15" y="417" width="195" height="16"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="14"/>
+                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -227,4 +240,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="118.52678571428571"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="text.justify" catalog="system" width="64" height="50"/>
+    </resources>
 </document>
