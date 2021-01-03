@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TableViewCellViewModel: TableViewCellViewModelType {
+class NewsTableViewCellViewModel: NewsTableViewCellViewModelType {
     
     private var rssItem: RSSItem
     
@@ -16,7 +16,9 @@ class TableViewCellViewModel: TableViewCellViewModelType {
         let dateText = rssItem.pubDate
         let endIndex = dateText.index(dateText.endIndex , offsetBy: -9)
         let newStr = String(dateText[..<endIndex])
-        return newStr
+        let dateManager = DateManager()
+        
+        return dateManager.translatePubdate(from: newStr)
     }
     
     var title: String {

@@ -11,7 +11,7 @@ import UIKit
 class CategoryViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-    var viewModel: CategoryVCViewModel?
+    var viewModel: CategoryTableViewViewModelType?
     
     override func viewDidLoad() {
         super.viewDidLoad()

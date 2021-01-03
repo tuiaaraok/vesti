@@ -80,7 +80,6 @@ class ParserManager: NSObject, XMLParserDelegate {
             currentTPubDate = ""
             currentCategory = ""
             currentFullText = ""
-
         }
         // separately create an dict for images
         element = elementName as NSString
@@ -117,12 +116,10 @@ class ParserManager: NSObject, XMLParserDelegate {
     }
     
     func parserDidEndDocument(_ parser: XMLParser) {
-        
         parserCompletionHandler?(rssItems)
     }
     
     func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
-        
         print(parseError.localizedDescription)
     }
 }

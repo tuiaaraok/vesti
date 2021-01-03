@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol TableViewCellViewModelType: class {
+protocol NewsTableViewCellViewModelType: class {
     var date: String { get }
     var title: String { get }
 }

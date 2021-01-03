@@ -14,22 +14,34 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
     @IBOutlet var tableView: UITableView!
     @IBOutlet var errorLabel: UILabel!
     
+    private var activityIndicator = UIActivityIndicatorView()
     private var myRefreshControl = UIRefreshControl()
     
-    var viewModel: ViewModel?
+    var viewModel: NewsVCViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(loadList(notification:)), name: NSNotification.Name(rawValue: "load"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(configureErrorLabel(notification:)), name: NSNotification.Name(rawValue: "configureErrorLabel"), object: nil)
-        
-        viewModel = ViewModel()
-        errorLabel.isHidden = true
-        tableView.rowHeight = 107
         
         myRefreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
         tableView.refreshControl = myRefreshControl
-        DataFetcherService.shared.fetchData(completion: fetch)
+        
+        viewModel = NewsVCViewModel()
+        errorLabel.isHidden = true
+        tableView.rowHeight = 107
+       
+        DataFetcherService.shared.fetchData(completion: reloadTableView)
+        addActivityIndicator()
+    }
+    
+    private func addActivityIndicator() {
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
     @objc func loadList(notification: NSNotification){
@@ -37,23 +49,21 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
     }
     
     @objc func configureErrorLabel(notification: NSNotification){
-        errorLabel.isHidden = false
-        errorLabel.text = "В этой категории пока нет новостей"
+        errorLabel.isHidden = NewsVCViewModel.filteredItems?.count == 0 ? false : true
     }
     
-    func fetch() {
+    func reloadTableView() {
          OperationQueue.main.addOperation {
             self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+            self.activityIndicator.stopAnimating()
         }
     }
     
     @objc private func refresh(sender: UIRefreshControl) {
-        
         if let rssItems = DataFetcherService.shared.rssItems {
-            DataFetcherService.shared.fetchData(completion: fetch)
-            guard let viewModel = viewModel else { return }
-            if let category = viewModel.category {
-                ViewModel.filteredItems = rssItems.filter{$0.category == category.rawValue}
+            DataFetcherService.shared.fetchData(completion: reloadTableView)
+            if let category = CategoryVCViewModel.category {
+                NewsVCViewModel.filteredItems = rssItems.filter{$0.category == category.rawValue}
                 tableView.reloadData()
             }
             sender.endRefreshing()
@@ -63,7 +73,7 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
     // MARK: - Table view data sourse
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.tableViewNumberOfRows() ?? 0
+        return viewModel?.numberOfRows() ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -71,7 +81,7 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
         let tableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? NewsTableViewCell
         guard let cell = tableViewCell, let viewModel = viewModel else { return UITableViewCell() }
         
-        let cellViewModel = viewModel.tableViewCellViewModel(forIndexPath: indexPath)
+        let cellViewModel = viewModel.cellViewModel(forIndexPath: indexPath)
 
         cell.viewModel = cellViewModel
         return cell
@@ -79,7 +89,7 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let viewModel = viewModel else { return }
-        viewModel.tableViewSelectRow(atIndexPath: indexPath)
+        viewModel.selectRow(atIndexPath: indexPath)
         performSegue(withIdentifier: "detail", sender: nil)
     }
     
@@ -90,7 +100,7 @@ class NewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLP
         guard let viewModel = viewModel else { return }
         if let detailVC = segue.destination as? DetailVC {
             guard segue.identifier == "detail" else { return }
-            detailVC.viewModel = viewModel.tableViewViewModelForSelectedRow()
+            detailVC.viewModel = viewModel.viewModelForSelectedRow()
         }
         
         if segue.destination is CategoryViewController {

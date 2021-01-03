@@ -8,7 +8,8 @@
 
 import Foundation
 
-class CategoryTableViewCellViewModel {
+class CategoryTableViewCellViewModel: CategoryTableViewCellViewModelType {
+
     var category: Categories
     
     var categoryName: String {

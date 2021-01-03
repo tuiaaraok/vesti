@@ -18,7 +18,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RX2-6N-GHW">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9sC-aD-GWL">
+                                <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="В этой категории пока нет новостей" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9sC-aD-GWL">
                                     <rect key="frame" x="0.0" y="163" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="19"/>
@@ -47,9 +47,14 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="7Uk-ie-htR">
+                                                    <rect key="frame" x="197" y="43" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="activityIndicator" destination="7Uk-ie-htR" id="7Zb-qD-cvD"/>
                                             <outlet property="dateLabel" destination="PNW-ch-0gD" id="21S-4f-mXT"/>
                                             <outlet property="titleLabel" destination="hQ3-Bs-gxc" id="wqi-dI-wa7"/>
                                         </connections>
@@ -170,6 +175,10 @@
                                                 <rect key="frame" x="15" y="-14" width="384" height="350"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             </imageView>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="dhf-j1-94I">
+                                                <rect key="frame" x="197" y="151" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </activityIndicatorView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dPK-DR-m8s">
                                                 <rect key="frame" x="15" y="417" width="195" height="16"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -203,6 +212,7 @@
                     <connections>
                         <outlet property="dateLabel" destination="dPK-DR-m8s" id="Je3-bo-TSt"/>
                         <outlet property="fullTextLabel" destination="ZGO-Bb-M8q" id="R2e-7d-rsA"/>
+                        <outlet property="imageActivityIndicator" destination="dhf-j1-94I" id="X18-ce-ztf"/>
                         <outlet property="mainImage" destination="sH1-Sl-tNX" id="kxc-Yp-H4J"/>
                         <outlet property="scroll" destination="PIL-Gc-1G0" id="GZq-5g-2bu"/>
                         <outlet property="titleLabel" destination="8G6-0t-dUx" id="Yp4-Fd-hWt"/>

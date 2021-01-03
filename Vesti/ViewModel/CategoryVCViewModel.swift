@@ -8,11 +8,9 @@
 
 import Foundation
 
-class CategoryVCViewModel {
+class CategoryVCViewModel: CategoryTableViewViewModelType {
     
-    var currentSelected: Int?
-    var previousSelected : IndexPath?
-    var category: Categories!
+    static var category: Categories!
     
     var categories: [Categories] {
         return Categories.allCases
@@ -28,16 +26,11 @@ class CategoryVCViewModel {
     }
     
     func selectRow(atIndexPath indexPath: IndexPath) {
-        self.previousSelected = indexPath
-        self.currentSelected = indexPath.row
-                
-        category = categories[indexPath.item]
+        CategoryVCViewModel.category = categories[indexPath.item]
         
         let newsVC = NewsVC()
-        ViewModel.filteredItems = newsVC.categoryFilter(by: category)
-        if ViewModel.filteredItems?.count == 0 {
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "configureErrorLabel"), object: nil)
-        }
+        NewsVCViewModel.filteredItems = newsVC.categoryFilter(by: CategoryVCViewModel.category)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "configureErrorLabel"), object: nil)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
     }
 }
